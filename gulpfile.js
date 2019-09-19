@@ -12,7 +12,7 @@ gulp.task('sass', function(){
           .pipe(sass({outputStyle: 'compressed'}))
           .pipe(rename({suffix : '.min'}))
           .pipe(autoprefixer({
-            overrideBrowserslist:['last 8 version']
+            overrideBrowserslist:['last 8 versions']
           }))
           .pipe(gulp.dest('app/css'))
           .pipe(browserSync.reload({stream: true}))
@@ -43,12 +43,12 @@ gulp.task('script', function(){
 gulp.task('html', function(){
   return gulp.src('app/*.html')
     .pipe(browserSync.reload({stream: true}))
-})
+});
 
 gulp.task('js', function(){
   return gulp.src('app/js/*.js')
     .pipe(browserSync.reload({stream: true}))
-})
+});
 
 gulp.task('browser-sync', function() {
   browserSync.init({
