@@ -3,6 +3,9 @@
 @import 'fonts';
 
 // start header
+.header {
+  background: #fff;
+}
 
 .header__top-inner {
   display: flex;
@@ -31,11 +34,13 @@
 
 .header__btn-login {
   background-color: $green;
-  margin-left: 7px;
+
 }
 
-.header__btn-register {
+.header__btn-register,
+.header__btn-logout {
   background-color: $red;
+  margin-left: 7px;
 }
 
 .header__menu {
@@ -61,6 +66,308 @@
     color: #fff;
     font-size: 14px;
   }
+}
+
+.header__circle {
+  &.active {
+    display: block;
+  }
+
+  display: none;
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #a0a0a0;
+    font-size: 14px;
+  }
+
+
+
+  span {
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 18px;
+    right: -7px;
+    top: -7px;
+    font-size: 11px;
+    color: #fff;
+  }
+}
+
+.header__box {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.notification {
+  span {
+    background-color: $yellow;
+  }
+}
+
+.message {
+  span {
+    background-color: $tomato;
+  }
+}
+
+.basket {
+  margin-right: 20px;
+
+  span {
+    background-color: $green;
+  }
+}
+
+.header__btn-login--off {
+  display: none;
+}
+
+.header__btn-logout {
+  display: none;
+
+  &.header__btn-login--on {
+    display: block;
+  }
+}
+
+.user {
+  margin-right: 25px;
+  padding-right: 20px;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: '\f107';
+    font-family: 'icomoon';
+    font-size: 16px;
+    color: #707070;
+    top: 0;
+    right: 0;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+  }
+
+  &__images {
+    margin-right: 15px;
+    width: 34px;
+    height: 34px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+
+  &__info {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  &__name {
+    @include f500;
+    color: #222;
+
+  }
+
+  &__money {
+    color: $green;
+    @include f700;
+  }
+}
+
+.user__menu {
+  border: 0 solid #ccc;
+  position: absolute;
+  background-color: #fff;
+  padding: 20px;
+  width: 158px;
+  top: 70px;
+  left: 20px;
+  transition: all .3s;
+  height: 0px;
+  overflow: hidden;
+  padding: 0px 20px;
+
+  a {
+    font-size: 12px;
+    color: #546e7a;
+    margin-bottom: 15px;
+  }
+}
+
+.circle__menu {
+  position: absolute;
+  top: 69px;
+  z-index: 1;
+}
+
+.user__box,
+.basket__box,
+.notification__box,
+.message__box {
+  position: relative;
+  margin-top: 40px;
+  height: 90px;
+
+  &:hover {
+    .user__menu {
+      height: auto;
+      border-width: 1px;
+      padding: 20px;
+      overflow: auto;
+    }
+  }
+}
+
+.circle__menu {
+  border-top: 0px solid #e0e0e0;
+  top: 63px;
+  right: 0;
+  height: 0;
+  overflow: hidden;
+  transition: all .3s;
+}
+
+.basket__box,
+.notification__box,
+.message__box {
+  margin-top: 54px;
+  margin-left: 15px;
+
+  &:hover {
+    .header__circle::before {
+      color: $bg;
+    }
+
+    .circle__menu {
+      overflow: hidden;
+      height: auto;
+      border-width: 1px;
+    }
+
+    .circle__item {
+      padding: 23px;
+
+    }
+  }
+
+}
+
+.circle__item {
+  background-color: #fff;
+  padding: 0 23px;
+  transition: all .3s;
+  border: 1px solid #e0e0e0;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-top: none;
+  display: flex;
+  align-items: center;
+  width: 269px;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: 27px;
+    right: 28px;
+    color: #b0bec5;
+    font-size: 16px;
+  }
+}
+
+.circle__images {
+  margin-right: 15px;
+}
+
+.circle__info-name {
+  @include f500;
+  color: $bg;
+}
+
+.circle__info-theme {
+  font-size: 12px;
+  color: $green;
+}
+
+.circle__info-price {
+  @include f500;
+  color: #000;
+  font-size: 16px;
+}
+
+.circle__info-date {
+  font-size: 10px;
+  color: #707070;
+}
+
+.basket__summ {
+  padding: 16px 17px 12px;
+  border: 1px solid #e0e0e0;
+  border-top: none;
+  background-color: #fff;
+}
+
+.basket__title {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 13px;
+  padding-right: 22px;
+  font-size: 16px;
+  @include f700;
+  margin-bottom: 15px;
+  color: $bg;
+}
+
+.basket__btn {
+  @include f700;
+  color: #fff;
+  font-size: 14px;
+  padding: 15px 5px;
+  background-color: $green;
+  text-align: center;
+  width: 105px;
+}
+
+.basket__btn-checkout {
+  width: 117px;
+  margin-left: 6px;
+  background-color: $red;
+}
+
+.notification__menu,
+.message__menu {
+  .circle__images {
+    margin-right: 20px;
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+  }
+
+  .circle__info {
+    line-height: 18px;
+  }
+}
+
+.icons-color::before {
+  color: $tomato;
+}
+
+.header__btn-menu {
+  // .header__btn 
+  display: none;
 }
 
 // start search
@@ -142,12 +449,12 @@
 
 
 // start product
-.product {
+.products {
   padding: 110px 0px;
   background-color: $gray;
 }
 
-.product__inner-btn {
+.products__inner-btn {
   text-align: center;
   margin-bottom: 60px;
 
@@ -169,7 +476,7 @@
   }
 }
 
-.product__inner-box {
+.products__inner-box {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -980,6 +1287,9 @@ button.icon-unsorted {
   flex-wrap: wrap;
   margin-bottom: 30px;
 }
+.pagination {
+  margin-bottom: 50px;
+}
 
 .pagination__list {
   li {
@@ -1037,6 +1347,7 @@ button.icon-unsorted {
       @include f500;
       color: $bg;
     }
+
     &::before {
       font-size: 16px;
       color: $green;
@@ -1045,8 +1356,10 @@ button.icon-unsorted {
       top: 0;
     }
   }
+
   .icon-comment-o {
     padding-right: 30px;
+
     &::before {
       top: -2px;
     }
@@ -1093,6 +1406,7 @@ button.icon-unsorted {
     .product__item-list {
       display: block;
     }
+
     .product__item-star {
       margin-left: auto;
       margin-right: 30px;
@@ -1101,3 +1415,6 @@ button.icon-unsorted {
 }
 
 // end product-page
+
+
+@import 'media';
